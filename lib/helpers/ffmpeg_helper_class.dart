@@ -34,8 +34,11 @@ class FFMpegHelper {
       _tempFolderPath = path.join(tempDir.path, "ffmpeg");
       Directory ffmpegInstallDir =
           ffmpegBaseDir ?? await getApplicationDocumentsDirectory();
-      _ffmpegInstallationPath =
-          path.join(ffmpegInstallDir.path, appName, "ffmpeg");
+      _ffmpegInstallationPath = path.join(
+        ffmpegInstallDir.path,
+        ffmpegBaseDir == null ? appName : '',
+        "ffmpeg",
+      );
       _ffmpegBinDirectory = path.join(
           _ffmpegInstallationPath!, "ffmpeg-master-latest-win64-gpl", "bin");
     }
